@@ -39,7 +39,7 @@ public class WeatherIconDaoWrapper {
                 subscriber.onNext(weatherIcon);
                 subscriber.onCompleted();
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
     }
 
     public Observable<List<WeatherIcon>> observAll(){
@@ -49,6 +49,6 @@ public class WeatherIconDaoWrapper {
                 subscriber.onNext(listAll());
                 subscriber.onCompleted();
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
     }
 }

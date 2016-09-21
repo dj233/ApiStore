@@ -2,6 +2,7 @@ package api.dao;
 
 import java.util.List;
 
+import de.greenrobot.dao.query.WhereCondition;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -27,8 +28,8 @@ public class CityDaoWrapper {
         return mDao.loadAll();
     }
 
+
     /**
-     * 已经执行到主线程，可在
      * @return
      */
     public Observable<List<City>> observAll(){
@@ -38,6 +39,7 @@ public class CityDaoWrapper {
                 subscriber.onNext(listAll());
                 subscriber.onCompleted();
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
     }
+
 }
